@@ -10,7 +10,7 @@
 }
 
 .content{
-    height:73vh;
+    height:76vh;
     justify-content: center;
     align-items: center;
     margin-left: 130px;
@@ -131,4 +131,5 @@
 .error{
     font-style: italic;
     color: red;
+    margin-top:33px;
 }

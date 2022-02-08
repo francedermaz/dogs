@@ -141,7 +141,8 @@ const CreateDog = () => {
                 </div>
                 <div className={styles.btn}>
                     {
-                        input.name.trim()==='' || input.name.trim()<4 || input.temperament.length>5 || input.temperament.length===0?
+                        input.name.trim()==='' || input.name.trim()<4 || 
+                        input.temperament.length>5 || input.temperament.length===0?
                         <button disabled className={styles.bttncreatedis}>Create</button>:<button className={styles.bttncreate} type="submit">Create</button>
                     }
                 </div>
