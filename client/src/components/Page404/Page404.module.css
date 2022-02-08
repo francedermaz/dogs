@@ -1,0 +1,37 @@
+.content{
+    display: flex;
+    flex-direction: column;;
+    justify-content: center;
+    height:76vh;
+    align-items: center;
+    background-image: url("https://i.pinimg.com/originals/8a/5d/3f/8a5d3f47fa14af73a3d905f4c320e8a4.jpg");
+}
+
+.title{
+    margin-top:0px;
+    font-size: 5rem;
+    font-weight: 500;
+    color: white;
+    -webkit-text-stroke: 1px black;
+    margin-bottom: 0px;
+}
+
+.subtitle{
+    margin-top: 0px;
+    color: white;
+    font-size: 25px;
+    margin-bottom: 0px;
+}
+
+.textone{
+    margin-top: 8px;
+    margin-bottom: 8px;
+    color:white;
+    opacity: 0.5;
+}
+
+.texttwo{
+    margin-top: 0px;
+    color:white;
+    opacity: 0.5;
+}

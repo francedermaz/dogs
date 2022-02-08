@@ -1,0 +1,134 @@
+*{
+    font-family: calibri;
+}
+
+.general{
+    /* background: linear-gradient(to bottom,rgba(255, 107, 139, 0.5),rgb(253, 151, 176)); */
+    background-color: #ffffff;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.content{
+    height:73vh;
+    justify-content: center;
+    align-items: center;
+    margin-left: 130px;
+}
+
+.input{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 23%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    border: 1px solid rgba(136, 1, 80, 0.911);
+    background-color: rgb(250, 223, 247);
+    border-radius: 4px;
+}
+
+.input:focus {
+    outline: none;
+    background-color: rgb(250, 206, 245);
+}
+
+.select{
+    width: 15%;
+    padding: wpx 5px;
+    border: 1px solid rgba(136, 1, 80, 0.911);
+    border-radius: 4px;
+    background-color: rgb(250, 223, 247);
+    margin-bottom: 20px;
+}
+
+.title{
+    padding-top: 30px;
+    font-style: italic;
+    font-size: 1.5em;
+    color: black;
+    -webkit-text-stroke: 0.7px black;
+}
+
+.temperamentstitle{
+    font-style: italic;
+    font-weight: 1em;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    color:black;
+    -webkit-text-stroke: 0.2px black;
+}
+
+.img{
+    width:40%;
+    margin-top: 70px;
+    margin-right: 190px;
+    -webkit-filter: drop-shadow(1px 1px 0 #ED5BF0)
+    drop-shadow(-1px -1px 0 #ED5BF0);
+    filter: drop-shadow(1px 1px 0 #ED5BF0) 
+    drop-shadow(-1px -1px 0 #ED5BF0);
+}
+
+.allopt{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.opt{
+    display:flex;
+    width: 85px;
+    align-items: center;
+    justify-content: center;
+    color:black;
+    height:35px;
+    margin-left: 12px;
+}
+
+.titleopt{
+    font-style: oblique;
+    font-size: 15px;
+    margin-right: 8px;
+}
+
+.bttx{
+    border-width: 1px;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.bttx:hover{
+    background-color: rgb(245, 65, 155);
+    cursor:pointer;
+}
+
+.bttncreate{
+    margin-top: 10px;
+    border-color: transparent;
+    border-radius: 30px 30px 30px 30px;
+    color:white;
+    font-family: calibri;
+    background-color: #fd4741;
+    height: 3em;
+    width:20%;
+}
+
+.bttncreatedis{
+    border-color: transparent;
+    border-radius: 30px 30px 30px 30px;
+    color:white;
+    height: 2em;
+}
+
+.bttncreate:hover{
+    cursor: pointer;
+    background-color: rgb(218, 32, 79);
+}
+
+.error{
+    font-style: italic;
+    color: red;
+}
