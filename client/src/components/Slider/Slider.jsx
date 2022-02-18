@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import {MdKeyboardArrowLeft,MdKeyboardArrowRight} from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import Afghan_Hound from './images/Afghan_Hound.png'
 import African_Hunting_Dog from './images/African_Hunting_Dog.png'
@@ -7,6 +6,8 @@ import Airedale_Terrier from './images/Airedale_Terrier.png'
 import Akbash_Dog from './images/Akbash_Dog.png'
 import Akita from './images/Akita.png'
 import styles from './Slider.module.css'
+import left from './images/left.png'
+import right from './images/next.png'
 
 const Slider = ({alldogs}) => {
     const [current,setCurrent] = useState(0);
@@ -24,8 +25,8 @@ const Slider = ({alldogs}) => {
 
     return (
         <div className={styles.slider}>
-            <MdKeyboardArrowLeft className={styles.leftarrow} onClick={prevSlide}/>
-            <MdKeyboardArrowRight className={styles.rightarrow} onClick={nextSlide}/>
+            <img src={left} alt='left' className={styles.leftarrow} onClick={prevSlide}/>
+            <img src={right} alt='right' className={styles.rightarrow} onClick={nextSlide}/>
             {
                 alldogs.map((el,index)=>{
                     return(

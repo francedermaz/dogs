@@ -21,13 +21,37 @@ const CreateDog = () => {
         maxlife_span: '',
         temperament: [],
     })
+    const [isSent,setIsSent] = useState(false);
+    const [errorImg,setErrorImg] = useState(false);
+
+    function validate(str){
+        let pattern =  new RegExp('^(https?:\\/\\/)?'+ // protocol
+        '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
+        '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
+        '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
+        '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
+        '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
+        return !!pattern.test(str);
+    }
 
     function handleChange(e){
         e.preventDefault();
+        setIsSent(false);
         setInput({
             ...input,
             [e.target.name]: e.target.value,
         })
+        if(e.target.name==='image'){
+            if(e.target.value!==''){
+                if(validate(e.target.value)===true){
+                    setErrorImg(false);
+                }
+                else{
+                    setErrorImg(true);
+                }
+            }
+            else setErrorImg(false);
+        }
     }
     function handleSelect(e){
         if(!input.temperament.includes(e.target.value) && input.temperament.length<6){
@@ -66,7 +90,7 @@ const CreateDog = () => {
                 temperament:input.temperament,
             }));
         }
-        alert('Dog created');
+        setIsSent(true);
         setInput({
             name: '',
             image: "",
@@ -82,7 +106,7 @@ const CreateDog = () => {
 
     useEffect(() => {
         dispatch(getTemperaments());
-    }, [])
+    }, [dispatch])
 
     return(
         <div>
@@ -98,7 +122,7 @@ const CreateDog = () => {
                 value={input.image} type='text' name='image' placeholder="Url of image" onChange={e=>handleChange(e)}>
                 </input>
                 <input className={styles.input}
-                value={input.minheight} type='number' name='minheight' placeholder="Min Height" min='1' max='9999' onChange={e=>handleChange(e)} required>
+                value={input.minheight} type='number' name='minheight' placeholder="Min Height" onChange={e=>handleChange(e)}>
                 </input>
                 <input className={styles.input}
                 value={input.maxheight} type='number' name='maxheight' placeholder="Max Height" min='1' max='9999' onChange={e=>handleChange(e)} required>
@@ -141,14 +165,31 @@ const CreateDog = () => {
                 </div>
                 <div className={styles.btn}>
                     {
-                        input.name.trim()==='' || input.name.trim()<4 || 
-                        input.temperament.length>5 || input.temperament.length===0?
+                        input.name.trim()==='' || input.name.trim().length<4 || 
+                        input.minheight.length>5 || input.minheight<1 || input.minheight.trim()==='' || input.minheight%1!==0 ||
+                        input.temperament.length>5 || input.temperament.length===0 || 
+                        parseInt(input.minheight)>=parseInt(input.maxheight) || 
+                        parseInt(input.minweight)>=parseInt(input.maxweight) || 
+                        parseInt(input.minlife_span)>=parseInt(input.maxlife_span) ||
+                        errorImg===true?
                         <button disabled className={styles.bttncreatedis}>Create</button>:<button className={styles.bttncreate} type="submit">Create</button>
                     }
                 </div>
                 <div>
                     {
+                        isSent===true?<p className={styles.sent}>Your breed has been created!</p>:<></>
+                    }
+                    {
                         input.temperament.length>5?<p className={styles.error}>Error! You can only add up to 5 temperament</p>:<></>
+                    }
+                    {
+                        errorImg===true && input.image.trim()!==''?<p className={styles.error}>Please enter a valid url</p>:<></>
+                    }
+                    {
+                        (parseInt(input.minheight)>=parseInt(input.maxheight) && input.maxheight.trim()!=='') ||
+                        (parseInt(input.minweight)>=parseInt(input.maxweight) && input.maxweight.trim()!=='') ||
+                        (parseInt(input.minlife_span)>=parseInt(input.maxlife_span) && input.maxlife_span.trim()!=='') 
+                        ?<p className={styles.error}>Error! Check your min and max values</p>:<></>
                     }
                 </div>
             </form>

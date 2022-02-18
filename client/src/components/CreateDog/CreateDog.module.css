@@ -133,3 +133,8 @@
     color: red;
     margin-top:33px;
 }
+
+.sent{
+    color: green;
+    font-style: italic;
+}

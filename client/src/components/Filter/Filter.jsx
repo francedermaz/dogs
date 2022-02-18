@@ -37,6 +37,10 @@ const Filter = ({allTemperaments,handleOrderBy,handleFilterTemperaments,handleFi
                     <option value='wei-asc'>Ascendant</option>
                     <option value='wei-des'>Descendant</option>
                 </optgroup>
+                <optgroup label="--- Life ---">
+                    <option value='life-asc'>Ascendant</option>
+                    <option value='life-des'>Descendant</option>
+                </optgroup>
             </select>
             </div>
             

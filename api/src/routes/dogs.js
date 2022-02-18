@@ -1,5 +1,6 @@
 const {Router} = require('express');
 const { getAllDogs, getDogDetail, createDog } = require('../controllers');
+const {Dog} = require ('../db');
 const router = Router();
 
 router.get('/',async(req,res)=>{
@@ -26,6 +27,23 @@ router.post('/',async(req,res)=>{
     aux
         ? res.status(200).send({success:'Dog created'})
         : res.status(400).send({error:'404'})
+})
+
+router.put('/:id',async(req,res)=>{
+    try{
+        let {id} = req.params;
+        let aux = await Dog.findOne({
+            where:{id:id}
+        })
+        Dog.update(
+            {name:'algo'},
+            {where:{id:id}}
+        )
+        res.status(200).send({success:"success"})
+    }
+    catch(e){
+        res.status(400).send({error:"cannot delete"})
+    }
 })
 
 module.exports = router;

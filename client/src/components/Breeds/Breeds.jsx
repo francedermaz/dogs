@@ -49,7 +49,7 @@ const Breeds = () => {
             <NavBar is={'breeds'}/>
             <div className={styles.page}>
                 <div className={styles.sep}>
-                    <SearchBar/>
+                    <SearchBar pagination={pagination}/>
                     <div className={styles.filter}>
                         <Filter
                             allTemperaments={temperaments}

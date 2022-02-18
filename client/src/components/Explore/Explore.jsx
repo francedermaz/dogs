@@ -1,11 +1,10 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllDogs } from '../../redux/actions';
+import { getAllDogs, getTemperaments } from '../../redux/actions';
 import Loader from '../Loader/Loader';
 import NavBar from '../NavBar/NavBar';
 import Slider from '../Slider/Slider';
 import SocialMedia from '../SocialMedia/SocialMedia';
-import styles from './Explore.module.css';
 
 const Explore = () => {
     const dispatch = useDispatch();
@@ -13,7 +12,8 @@ const Explore = () => {
     alldogs=alldogs.slice(1,6);
 
     useEffect(() => {
-        dispatch(getAllDogs())
+        dispatch(getAllDogs());
+        dispatch(getTemperaments());
     }, [dispatch])
 
     return(

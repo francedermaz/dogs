@@ -1,18 +1,30 @@
 .socialmedia{
     display:flex;
-    float: right;
-    margin-right: 2em;
     margin-top: 0.85em;
+    align-items: center;
+    justify-content: flex-end;
 }
 
-.iconone{
-    margin-right: 1.25em;
+.icononeimg{
+    width: 40%;
+    -webkit-filter : hue-rotate(180deg);
+    filter : hue-rotate(180deg);
 }
 
-a{
-    color:white;
+.iconimg{
+    width: 35%;
+    filter: opacity(0.5) drop-shadow(0 0 0 white);
+    margin-right: 25px;
 }
 
-a:hover{
-    color:#ed5bf0;
+.icononeimg:hover{
+    filter: opacity(0.5) drop-shadow(0 0 0 rgb(230, 34, 181));
+}
+
+.iconimg:hover{
+    filter: opacity(0.5) drop-shadow(0 0 0 rgb(230, 34, 181));
+}
+
+a:link, a:visited, a:active {
+    width: 5%;
 }

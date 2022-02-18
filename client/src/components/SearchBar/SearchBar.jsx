@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { getDogName } from '../../redux/actions';
 import styles from './SearchBar.module.css';
 
-const SearchBar = () => {
+const SearchBar = ({pagination}) => {
     const dispatch = useDispatch();
     const [name,setName] = useState('');
 
@@ -15,6 +15,7 @@ const SearchBar = () => {
     function handleSubmit (e) {
         e.preventDefault();
         dispatch(getDogName(name));
+        pagination(1);
         setName('');
     }
 

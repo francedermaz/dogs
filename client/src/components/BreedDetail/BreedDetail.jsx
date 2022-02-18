@@ -48,7 +48,7 @@ const BreedDetail = () => {
                             </div>
                             <div className={styles.internalcont}>
                                 <p className={styles.attribtitle}>Weight:</p>
-                                <p>{dog.weight} cm</p>
+                                <p>{dog.weight} kg</p>
                             </div>
                             <div className={styles.internalcont}>
                                 <p className={styles.attribtitle}>Life span:</p>

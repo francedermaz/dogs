@@ -37,6 +37,21 @@ const rootReducer = (state=initialState,action)=>{
                 if(ex[1]) dogcopy[i].maxweight=parseInt(ex[1]);
                 else dogcopy[i].maxweight=ex[0];
             }
+            
+            for(let i=0;i<dogcopy.length;++i){
+                if(dogcopy[i].life_span){
+                    let auxnr = dogcopy[i].life_span.split(' '); // [10] [years]  o  [10] [-] [12] [years]
+                    if(auxnr[1]==='years'){
+                        dogcopy[i].minlife_span=parseInt(auxnr[0]);
+                        dogcopy[i].maxlife_span=parseInt(auxnr[0]);
+                    }
+                    else{
+                        dogcopy[i].minlife_span=parseInt(auxnr[0]);
+                        dogcopy[i].maxlife_span=parseInt(auxnr[2]);
+                    }
+                }
+            }
+
             let aux;
             switch(action.payload){
                 case "alph-asc": aux = dogcopy.sort(function(a,b){
@@ -60,6 +75,18 @@ const rootReducer = (state=initialState,action)=>{
                 case "wei-des": aux = dogcopy.sort(function(a,b){
                     if(a.maxweight>b.maxweight) return -1;
                     if(a.maxweight<b.maxweight) return 1;
+                    return 0;
+                })
+                break;
+                case "life-asc": aux = dogcopy.sort(function(a,b){
+                    if(a.minlife_span>b.minlife_span) return 1;
+                    if(a.minlife_span<b.minlife_span) return -1;
+                    return 0;
+                })
+                break;
+                case "life-des": aux = dogcopy.sort(function(a,b){
+                    if(a.maxlife_span>b.maxlife_span) return -1;
+                    if(a.maxlife_span<b.maxlife_span) return 1;
                     return 0;
                 })
                 break;

@@ -17,11 +17,14 @@
 }
     
 .button{
+    display: flex;
     border-radius: 0px;
     border-width: 1px;
     width: 22px;
     height: 22px;
     font-size: 12px;
+    justify-content: center;
+    align-items: center;
 }
 
 .button:hover{
@@ -29,6 +32,9 @@
 }
 
 .buttonactive{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: rgb(255, 175, 228);
     border-width: 1px;
     width: 22px;
